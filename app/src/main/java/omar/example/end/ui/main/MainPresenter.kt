@@ -8,7 +8,7 @@ import omar.example.end.network.ProductsRemoteRepository
 import javax.inject.Inject
 
 class MainPresenter @Inject constructor(private val remoteRepository: ProductsRemoteRepository) :
-    MainContract.Presenter {
+        MainContract.Presenter {
 
     private val compositeDisposable = CompositeDisposable()
 
@@ -21,14 +21,15 @@ class MainPresenter @Inject constructor(private val remoteRepository: ProductsRe
     override fun start() {
         view.showLoading(true)
         val disposable = remoteRepository.getProducts()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                view.showLoading(false)
-                view.showProducts(it.products)
-            }, {
-                view.showLoading(false)
-            })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    view.showLoading(false)
+                    view.showProducts(it.products)
+                }, {
+                    view.showLoading(false)
+                    view.showFailure()
+                })
         compositeDisposable.add(disposable)
     }
 

@@ -32,6 +32,10 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
         setupToolbar()
         setupRecyclerView()
+        btnRetry.setOnClickListener {
+            retryLayout.visibility = View.GONE
+            presenter.start()
+        }
     }
 
     override fun onStart() {
@@ -57,6 +61,9 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         tvProductsCount.text = getString(R.string.products_count, products.size)
     }
 
+    override fun showFailure() {
+        retryLayout.visibility = View.VISIBLE
+    }
 
     /*** Private Methods ***/
 
@@ -66,6 +73,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
             setDisplayShowTitleEnabled(false)
+            setHomeAsUpIndicator(R.drawable.arrow_back)
         }
         toolbarTitle.text = getString(R.string.products_list_title)
     }
@@ -74,14 +82,14 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     private fun setupRecyclerView() {
         recycler.apply {
             layoutManager =
-                GridLayoutManager(this@MainActivity, resources.getInteger(R.integer.products_list_span_count))
+                    GridLayoutManager(this@MainActivity, resources.getInteger(R.integer.products_list_span_count))
             adapter = ProductAdapter(listOf())
             addItemDecoration(
-                GridSpacingItemDecoration(
-                    resources.getInteger(R.integer.products_list_span_count),
-                    resources.getDimensionPixelSize(R.dimen.product_list_spacing),
-                    true
-                )
+                    GridSpacingItemDecoration(
+                            resources.getInteger(R.integer.products_list_span_count),
+                            resources.getDimensionPixelSize(R.dimen.product_list_spacing),
+                            true
+                    )
             )
         }
     }

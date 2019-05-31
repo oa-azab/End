@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:enabled="true"
-        android:icon="@drawable/ic_person"
+        android:icon="@drawable/menu_search_inactive"
         app:showAsAction="ifRoom" />
     <item
         android:checkable="true"
         android:enabled="true"
-        android:icon="@drawable/ic_person"
+        android:icon="@drawable/wishlist_active"
         app:showAsAction="ifRoom" />
     <item
         android:enabled="true"
-        android:icon="@drawable/ic_person"
+        android:icon="@drawable/home_end_inactive"
         app:showAsAction="ifRoom" />
     <item
         android:enabled="true"
-        android:icon="@drawable/ic_person"
+        android:icon="@drawable/account_inactive"
         app:showAsAction="ifRoom" />
     <item
         android:enabled="true"
-        android:icon="@drawable/ic_person"
+        android:icon="@drawable/basket_inactive"
         app:showAsAction="ifRoom" />
 </menu>

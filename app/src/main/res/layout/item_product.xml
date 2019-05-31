@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:foreground="?attr/selectableItemBackground"
     android:background="?attr/selectableItemBackground">
 
     <ImageView
@@ -22,7 +23,20 @@
         android:gravity="center"
         android:maxLines="2"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/imgImage"
+        tools:text="Test shirt" />
+
+    <TextView
+        android:id="@+id/tvColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proxima_nova_regular"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="color"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tvName"
         tools:text="Test shirt" />
 
     <TextView
@@ -33,7 +47,8 @@
         android:gravity="center"
         android:maxLines="1"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-        app:layout_constraintTop_toBottomOf="@id/tvName"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/tvColor"
         tools:text="£199" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

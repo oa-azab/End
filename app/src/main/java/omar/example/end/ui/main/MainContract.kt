@@ -8,6 +8,8 @@ interface MainContract {
         fun showLoading(show: Boolean)
 
         fun showProducts(products: List<Product>)
+
+        fun showFailure()
     }
 
     interface Presenter {

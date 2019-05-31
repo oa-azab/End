@@ -26,6 +26,10 @@ class ProductAdapter(private val products: List<Product>) : RecyclerView.Adapter
     class ProductViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
             LayoutContainer {
 
+        init {
+            containerView.setOnClickListener {}
+        }
+
         fun bind(product: Product) {
 
             Glide.with(imgImage)
