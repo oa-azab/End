@@ -10,7 +10,7 @@ import omar.example.end.R
 import omar.example.end.model.Product
 import omar.example.end.util.inflate
 
-class ProductAdapter(val products: List<Product>) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+class ProductAdapter(private val products: List<Product>) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         return ProductViewHolder(parent.inflate(R.layout.item_product))
@@ -30,7 +30,7 @@ class ProductAdapter(val products: List<Product>) : RecyclerView.Adapter<Product
 
             Glide.with(imgImage)
                     .load(product.image)
-                    .placeholder(R.color.colorAccent)
+                    .placeholder(R.color.colorGrey)
                     .into(imgImage)
 
             tvName.text = product.name

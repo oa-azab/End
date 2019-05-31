@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">End</string>
+    <string name="products_count">%d items</string>
+    <string name="products_list_title">shirts</string>
 </resources>
