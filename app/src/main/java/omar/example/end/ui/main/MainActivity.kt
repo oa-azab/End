@@ -1,21 +1,16 @@
 package omar.example.end.ui.main
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
 import omar.example.end.App
 import omar.example.end.R
 import omar.example.end.model.Product
-import omar.example.end.network.ProductsApi
-import omar.example.end.network.ProductsApi.Companion.BASE_URL
 import omar.example.end.ui.ProductAdapter
 import omar.example.end.util.GridSpacingItemDecoration
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainContract.View {
@@ -36,6 +31,14 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             retryLayout.visibility = View.GONE
             presenter.start()
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return if (item?.itemId == android.R.id.home) {
+            onBackPressed()
+            true
+        } else
+            super.onOptionsItemSelected(item)
     }
 
     override fun onStart() {
